@@ -1,0 +1,53 @@
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysql-study
+    restart: always
+    # Добавляем команду запуска с параметрами кодировки:
+    command:
+      [
+        "mysqld",
+        "--character-set-server=utf8mb4",
+        "--collation-server=utf8mb4_unicode_ci",
+      ]
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: lab
+    ports:
+      - "3306:3306"
+    volumes:
+      # Связываем именованный том с внутренней папкой MySQL
+      - mysql-study-data:/var/lib/mysql
+      - ./init-db:/docker-entrypoint-initdb.d
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin-study
+    restart: always
+    ports:
+      - "8081:80" # Мы вешаем его на порт 8081, чтобы не занимать основной 80-й
+    environment:
+      PMA_HOST: db # Указываем имя сервиса базы данных, к которой подключаемся
+      PMA_USER: root
+      PMA_PASSWORD: secret
+    depends_on:
+      - db # Говорим Docker сначала запустить базу, а потом веб-морду
+
+  prisma:
+    build: ./prisma
+    container_name: prisma-studio
+    restart: always
+    env_file:
+      - ./prisma/.env
+    ports:
+      - "5555:5555"
+    volumes:
+      - ./prisma:/app
+      # МАГИЯ: этот пустой путь говорит Docker:
+      # "Используй node_modules из образа, а не из локальной папки"
+      - /app/node_modules
+    depends_on:
+      - db
+
+volumes:
+  mysql-study-data:

@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Departments {
+  dept_id   Int         @id
+  dept_name String      @db.VarChar(255)
+  Employees Employees[]
+}
+
+model EmployeeQualifications {
+  id        Int       @id @default(autoincrement())
+  emp_id    Int
+  qual_name String    @db.VarChar(100)
+  Employees Employees @relation(fields: [emp_id], references: [emp_id], onDelete: Cascade, onUpdate: Restrict, map: "EmployeeQualifications_ibfk_1")
+
+  @@index([emp_id], map: "emp_id")
+}
+
+model Employees {
+  emp_id                 Int                      @id
+  full_name              String                   @db.VarChar(255)
+  position               String                   @db.VarChar(255)
+  dept_id                Int?
+  EmployeeQualifications EmployeeQualifications[]
+  Departments            Departments?             @relation(fields: [dept_id], references: [dept_id], onUpdate: Restrict, map: "Employees_ibfk_1")
+
+  @@index([dept_id], map: "dept_id")
+}
