@@ -1,25 +1,4 @@
 services:
-  db:
-    image: mysql:8.0
-    container_name: mysql-study
-    restart: always
-    # Добавляем команду запуска с параметрами кодировки:
-    command:
-      [
-        "mysqld",
-        "--character-set-server=utf8mb4",
-        "--collation-server=utf8mb4_unicode_ci",
-      ]
-    environment:
-      MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: lab
-    ports:
-      - "3306:3306"
-    volumes:
-      # Связываем именованный том с внутренней папкой MySQL
-      - mysql-study-data:/var/lib/mysql
-      - ./init-db:/docker-entrypoint-initdb.d
-
   phpmyadmin:
     image: phpmyadmin:latest
     container_name: phpmyadmin-study
@@ -30,8 +9,8 @@ services:
       PMA_HOST: db # Указываем имя сервиса базы данных, к которой подключаемся
       PMA_USER: root
       PMA_PASSWORD: secret
-    depends_on:
-      - db # Говорим Docker сначала запустить базу, а потом веб-морду
+    networks:
+      - shared
 
   prisma:
     build: ./prisma
@@ -46,8 +25,12 @@ services:
       # МАГИЯ: этот пустой путь говорит Docker:
       # "Используй node_modules из образа, а не из локальной папки"
       - /app/node_modules
-    depends_on:
-      - db
+    networks:
+      - shared
 
 volumes:
   mysql-study-data:
+
+networks:
+  shared:
+    name: mysql-shared
