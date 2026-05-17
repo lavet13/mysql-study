@@ -39,7 +39,8 @@ echo "[1/2] Converting report.md to content.docx via Pandoc..."
 docker compose -f docker-compose.docs.yml run --rm docs \
   "$REPORT" \
   -o "$CONTENT_TMP" \
-  --reference-doc="$REFERENCE"
+  --reference-doc="$REFERENCE" \
+  --resource-path="lab-02"
 
 # == Step 2: Merge title page with content ====================================
 

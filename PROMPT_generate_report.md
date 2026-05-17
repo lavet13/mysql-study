@@ -193,3 +193,9 @@ in the attached codebase:
 - INSERT statements must include all the original data rows from the assignment
 - Add a comment above each CREATE TABLE explaining which normal form it satisfies
   and why (same style as lab-01/init.sql comments)
+- For labs 2–11, the init.sql must create the full 'student' database
+  schema (dannie, region, gorod, ulica, gruppa, spec, roditeli, roddeti,
+  prepod, dischiplina, uspev) with enough realistic seed data to
+  demonstrate all the query tasks in the assignment. Use the schema
+  diagram from page 16 of the assignment PDF as the source of truth
+  for table structure and relationships.
