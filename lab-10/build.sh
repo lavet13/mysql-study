@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 #
-# Builds lab-07/Отчет.docx from lab-07/report.md
+# Builds lab-10/Отчет.docx from lab-10/report.md
 # Run from the PROJECT ROOT:
-#   bash lab-07/build.sh
+#   bash lab-10/build.sh
 
 set -e
 
-LAB_NUMBER="7"
-LAB_TITLE="Простые подзапросы"
+LAB_NUMBER="10"
+LAB_TITLE="Добавление, удаление и изменение данных"
 SUBJECT="Инжиниринг и управление данными"
 GROUP="ИТИм-25"
 STUDENT="Скиндер И.П."
@@ -15,9 +15,9 @@ TEACHER="доц. Романюк В.В."
 CITY="Донецк"
 YEAR="2026"
 
-REPORT="lab-07/report.md"
-CONTENT_TMP="lab-07/_content_tmp.docx"
-OUTPUT="lab-07/Отчет.docx"
+REPORT="lab-10/report.md"
+CONTENT_TMP="lab-10/_content_tmp.docx"
+OUTPUT="lab-10/Отчет.docx"
 REFERENCE="templates/reference.docx"
 
 echo "[1/2] Converting report.md to content.docx via Pandoc..."
@@ -26,7 +26,7 @@ docker compose -f docker-compose.docs.yml run --rm docs \
   "$REPORT" \
   -o "$CONTENT_TMP" \
   --reference-doc="$REFERENCE" \
-  --resource-path="lab-07"
+  --resource-path="lab-10"
 
 echo "[2/2] Merging title page with content..."
 

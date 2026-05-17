@@ -1,0 +1,29 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql-lab08
+    restart: always
+    command:
+      [
+        "mysqld",
+        "--character-set-server=utf8mb4",
+        "--collation-server=utf8mb4_unicode_ci",
+      ]
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: lab
+    ports:
+      - "3314:3306"
+    volumes:
+      - lab08-data:/var/lib/mysql
+      - ../student-init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - shared
+
+volumes:
+  lab08-data:
+
+networks:
+  shared:
+    external: true
+    name: mysql-shared
