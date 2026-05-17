@@ -82,7 +82,7 @@ SELECT <поля> FROM <таблица>
 SELECT * FROM dannie;
 ```
 
-![Рисунок 1 – Результат выборки всех данных из таблицы dannie](assets/step-1-select-dannie.png)
+![Рисунок 1 – Результат выборки всех данных из таблицы dannie](assets/step-1-select-dannie.png){ width=90% }
 
 ### Задание 2. Вывести данные из таблицы DISCHIPLINA
 
@@ -90,7 +90,7 @@ SELECT * FROM dannie;
 SELECT * FROM dischiplina;
 ```
 
-![Рисунок 2 – Результат выборки всех данных из таблицы dischiplina](assets/step-2-select-dischiplina.png)
+![Рисунок 2 – Результат выборки всех данных из таблицы dischiplina](assets/step-2-select-dischiplina.png){ widtn=80% }
 
 
 
@@ -102,7 +102,7 @@ SELECT * FROM dischiplina;
 SELECT fam FROM dannie;
 ```
 
-![Рисунок 3 – Список фамилий студентов](assets/step-3-fam.png)
+![Рисунок 3 – Список фамилий студентов](assets/step-3-fam.png){ width=60% }
 
 ### Задание 4. Вывести названия всех групп
 
@@ -110,7 +110,7 @@ SELECT fam FROM dannie;
 SELECT nazvanie FROM gruppa;
 ```
 
-![Рисунок 4 – Список названий групп](assets/step-4-gruppy.png)
+![Рисунок 4 – Список названий групп](assets/step-4-gruppy.png){ width=40% }
 
 ### Задание 5. Вывести фамилии, имена, телефоны и паспортные данные студентов
 
@@ -120,7 +120,7 @@ SELECT nazvanie FROM gruppa;
 SELECT fam, ima, telephone, pasp_dannie FROM dannie;
 ```
 
-![Рисунок 5 – Фамилии, имена, телефоны и паспортные данные студентов](assets/step-5-fam-ima-tel-pasp.png)
+![Рисунок 5 – Фамилии, имена, телефоны и паспортные данные студентов](assets/step-5-fam-ima-tel-pasp.png){ width=90% }
 
 ### Задание 6. Вывести фамилии родителей и телефоны
 
@@ -128,7 +128,7 @@ SELECT fam, ima, telephone, pasp_dannie FROM dannie;
 SELECT fio_rod, tel FROM roditeli;
 ```
 
-![Рисунок 6 – Фамилии родителей и их телефоны](assets/step-6-roditeli-tel.png)
+![Рисунок 6 – Фамилии родителей и их телефоны](assets/step-6-roditeli-tel.png){ width=70% }
 
 ### Задание 7. Вывести названия городов и названия улиц
 
@@ -138,7 +138,7 @@ SELECT fio_rod, tel FROM roditeli;
 SELECT gorod.nazvanie, ulica.nazvanie FROM gorod, ulica;
 ```
 
-![Рисунок 7 – Декартово произведение городов и улиц](assets/step-7-gorod-ulica.png)
+![Рисунок 7 – Декартово произведение городов и улиц](assets/step-7-gorod-ulica.png){ width=50% }
 
 ### Задание 8. Вывести названия предметов и фамилии преподавателей
 
@@ -146,7 +146,11 @@ SELECT gorod.nazvanie, ulica.nazvanie FROM gorod, ulica;
 SELECT dischiplina.nazvanie, prepod.fio_prepod FROM dischiplina, prepod;
 ```
 
-![Рисунок 8 – Названия предметов и фамилии преподавателей](assets/step-8-dischiplina-prepod.png)
+![Рисунок 8 – Названия предметов и фамилии преподавателей](assets/step-8-dischiplina-prepod.png){ width=50% }
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
 
 ### Задание 9. Вывести фамилии и дату рождения студентов, переименовав поле DATE*ROGNEN в ДЕНЬ*РОЖДЕНИЯ
 
@@ -156,7 +160,7 @@ SELECT dischiplina.nazvanie, prepod.fio_prepod FROM dischiplina, prepod;
 SELECT fam, date_rognen AS ДЕНЬ_РОЖДЕНИЯ FROM dannie;
 ```
 
-![Рисунок 9 – Фамилии и дата рождения студентов с псевдонимом поля](assets/step-9-den-rozhdeniya.png)
+![Рисунок 9 – Фамилии и дата рождения студентов с псевдонимом поля](assets/step-9-den-rozhdeniya.png){ width=50% }
 
 ### Задание 10. Вывести названия улиц, переименовав поле NAZVANIE в УЛИЦЫ
 
@@ -164,7 +168,11 @@ SELECT fam, date_rognen AS ДЕНЬ_РОЖДЕНИЯ FROM dannie;
 SELECT nazvanie AS УЛИЦЫ FROM ulica;
 ```
 
-![Рисунок 10 – Названия улиц с переименованным полем](assets/step-10-ulicy.png)
+![Рисунок 10 – Названия улиц с переименованным полем](assets/step-10-ulicy.png){ width=80% }
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
 
 ### Задание 11. Вывести список улиц, исключив повторяющиеся значения
 
@@ -174,7 +182,11 @@ SELECT nazvanie AS УЛИЦЫ FROM ulica;
 SELECT DISTINCT nazvanie FROM ulica;
 ```
 
-![Рисунок 11 – Уникальные названия улиц](assets/step-11-distinct-ulicy.png)
+![Рисунок 11 – Уникальные названия улиц](assets/step-11-distinct-ulicy.png){ width=80% }
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
 
 ### Задание 12. Вывести различные имена студентов
 
@@ -182,7 +194,7 @@ SELECT DISTINCT nazvanie FROM ulica;
 SELECT DISTINCT ima FROM dannie;
 ```
 
-![Рисунок 12 – Уникальные имена студентов](assets/step-12-distinct-ima.png)
+![Рисунок 12 – Уникальные имена студентов](assets/step-12-distinct-ima.png){ width=70% }
 
 ### Задание 13. Вывести первую в списке специальность
 
@@ -192,7 +204,7 @@ SELECT DISTINCT ima FROM dannie;
 SELECT nazvanie FROM spec LIMIT 0, 1;
 ```
 
-![Рисунок 13 – Первая специальность в списке](assets/step-13-limit-spec.png)
+![Рисунок 13 – Первая специальность в списке](assets/step-13-limit-spec.png){ width=50% }
 
 ### Задание 14. Вывести с 6 по 10 строки таблицы RODITELI
 
@@ -202,7 +214,7 @@ SELECT nazvanie FROM spec LIMIT 0, 1;
 SELECT * FROM roditeli LIMIT 5, 5;
 ```
 
-![Рисунок 14 – Строки с 6 по 10 из таблицы roditeli](assets/step-14-limit-roditeli.png)
+![Рисунок 14 – Строки с 6 по 10 из таблицы roditeli](assets/step-14-limit-roditeli.png){ width=50% }
 
 ## 5. Проверка результатов
 
@@ -210,15 +222,19 @@ SELECT * FROM roditeli LIMIT 5, 5;
 
 В Prisma Studio отображаются все таблицы базы данных с возможностью просмотра содержимого каждой из них и визуализации схемы связей между таблицами.
 
-![Рисунок – Таблица dannie в Prisma Studio](assets/prisma-tables.png)
+![Рисунок 15 – Таблица dannie в Prisma Studio](assets/prisma-tables.png)
 
 В phpMyAdmin доступен полный список таблиц базы `lab` с возможностью выполнения произвольных SQL-запросов через вкладку SQL.
 
-![Рисунок – Список таблиц базы данных в phpMyAdmin](assets/phpmyadmin-tables.png)
+![Рисунок 16 – Список таблиц базы данных в phpMyAdmin](assets/phpmyadmin-tables.png)
 
 Диаграмма связей в Prisma Studio наглядно показывает отношения между всеми 11 таблицами базы данных `student`.
 
-![Рисунок – Диаграмма связей базы данных в Prisma Studio](assets/prisma-diagram.png)
+![Рисунок 17 – Диаграмма связей базы данных в Prisma Studio](assets/prisma-diagram.png)
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
 
 ## Вывод
 

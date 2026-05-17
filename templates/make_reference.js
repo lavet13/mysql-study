@@ -62,7 +62,13 @@ var doc = new Document({
         basedOn: "Normal",
         next: "Normal",
         quickFormat: true,
-        run: { font: TNR, size: 28, bold: true, color: "000000" },
+        run: {
+          font: TNR,
+          size: 28,
+          bold: true,
+          color: "000000",
+          allCaps: true,
+        },
         paragraph: {
           spacing: { line: 360, lineRule: "auto", before: 240, after: 120 },
           indent: { firstLine: 0 },
@@ -143,7 +149,7 @@ var doc = new Document({
         basedOn: "Normal",
         run: { font: "Times New Roman", size: 28, color: "000000" },
         paragraph: {
-          spacing: { line: 360, lineRule: "auto", before: 0, after: 0 },
+          spacing: { line: 360, lineRule: "auto", before: 0, after: 240 },
           indent: { firstLine: 0 },
           alignment: AlignmentType.CENTER,
         },
@@ -181,6 +187,18 @@ var doc = new Document({
         name: "First Paragraph",
         basedOn: "Normal",
         paragraph: { indent: { firstLine: 709 } },
+      },
+
+      // Page break style — used via ::: {custom-style="pagebreak"} ::: in Markdown
+      {
+        id: "pagebreak",
+        name: "pagebreak",
+        basedOn: "Normal",
+        paragraph: {
+          spacing: { line: 240, lineRule: "auto", before: 0, after: 0 },
+          indent: { firstLine: 0 },
+          pageBreakBefore: true, // this is the key property
+        },
       },
     ],
   },

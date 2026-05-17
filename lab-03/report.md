@@ -52,7 +52,7 @@ services:
 SELECT fam FROM dannie WHERE kod_gruppy = 3;
 ```
 
-![Рисунок 1 – Фамилии студентов группы с кодом 3](assets/step-01-where-gruppa3.png)
+![Рисунок 1 – Фамилии студентов группы с кодом 3](assets/step-01-where-gruppa3.png){ width=70% }
 
 ### Задание 2. Вывести название региона с кодом 1
 
@@ -60,7 +60,7 @@ SELECT fam FROM dannie WHERE kod_gruppy = 3;
 SELECT nazvanie FROM region WHERE kod_region = 1;
 ```
 
-![Рисунок 2 – Название региона с кодом 1](assets/step-02-where-region1.png)
+![Рисунок 2 – Название региона с кодом 1](assets/step-02-where-region1.png){ width=70% }
 
 ### Задание 3. Вывести фамилию преподавателя с кодом 2
 
@@ -68,7 +68,7 @@ SELECT nazvanie FROM region WHERE kod_region = 1;
 SELECT fio_prepod FROM prepod WHERE kod_prepod = 2;
 ```
 
-![Рисунок 3 – Фамилия преподавателя с кодом 2](assets/step-03-where-prepod2.png)
+![Рисунок 3 – Фамилия преподавателя с кодом 2](assets/step-03-where-prepod2.png){ width=70% }
 
 ### Задание 4. Вывести информацию о студентах групп с кодами 1 и 2
 
@@ -78,7 +78,7 @@ SELECT fio_prepod FROM prepod WHERE kod_prepod = 2;
 SELECT * FROM dannie WHERE kod_gruppy IN (1, 2);
 ```
 
-![Рисунок 4 – Студенты групп с кодами 1 и 2](assets/step-04-in-gruppy.png)
+![Рисунок 4 – Студенты групп с кодами 1 и 2](assets/step-04-in-gruppy.png){ width=90% }
 
 ### Задание 5. Вывести названия дисциплин с кодами 2 и 3
 
@@ -86,7 +86,7 @@ SELECT * FROM dannie WHERE kod_gruppy IN (1, 2);
 SELECT nazvanie FROM dischiplina WHERE kod_dischiplina IN (2, 3);
 ```
 
-![Рисунок 5 – Дисциплины с кодами 2 и 3](assets/step-05-in-dischiplina.png)
+![Рисунок 5 – Дисциплины с кодами 2 и 3](assets/step-05-in-dischiplina.png){ width=90% }
 
 ### Задание 6. Вывести имена студентов, заглавные буквы которых находятся в диапазоне от «В» до «М»
 
@@ -96,7 +96,7 @@ SELECT nazvanie FROM dischiplina WHERE kod_dischiplina IN (2, 3);
 SELECT ima FROM dannie WHERE ima BETWEEN 'В' AND 'М';
 ```
 
-![Рисунок 6 – Имена студентов в диапазоне от В до М](assets/step-06-between-ima.png)
+![Рисунок 6 – Имена студентов в диапазоне от В до М](assets/step-06-between-ima.png){ width=70% }
 
 ### Задание 7. Вывести данные о студентах, фамилии которых начинаются на букву «М»
 
@@ -106,7 +106,7 @@ SELECT ima FROM dannie WHERE ima BETWEEN 'В' AND 'М';
 SELECT * FROM dannie WHERE fam LIKE 'М%';
 ```
 
-![Рисунок 7 – Студенты с фамилиями на букву М](assets/step-07-like-fam-m.png)
+![Рисунок 7 – Студенты с фамилиями на букву М](assets/step-07-like-fam-m.png){ width=100% }
 
 ### Задание 8. Выбрать записи с пустыми значениями номера квартиры
 
@@ -116,7 +116,7 @@ SELECT * FROM dannie WHERE fam LIKE 'М%';
 SELECT * FROM dannie WHERE kvart IS NULL;
 ```
 
-![Рисунок 8 – Студенты без номера квартиры](assets/step-08-is-null-kvart.png)
+![Рисунок 8 – Студенты без номера квартиры](assets/step-08-is-null-kvart.png){ width=90% }
 
 ### Задание 9. Отсортировать фамилии студентов в алфавитном порядке
 
@@ -126,7 +126,7 @@ SELECT * FROM dannie WHERE kvart IS NULL;
 SELECT fam FROM dannie ORDER BY fam;
 ```
 
-![Рисунок 9 – Фамилии студентов в алфавитном порядке](assets/step-09-order-fam-asc.png)
+![Рисунок 9 – Фамилии студентов в алфавитном порядке](assets/step-09-order-fam-asc.png){ width=70% }
 
 ### Задание 10. Вывести данные о студентах, отсортировав номера телефонов по возрастанию
 
@@ -134,7 +134,7 @@ SELECT fam FROM dannie ORDER BY fam;
 SELECT fam, ima, telephone FROM dannie ORDER BY telephone;
 ```
 
-![Рисунок 10 – Студенты отсортированные по номеру телефона](assets/step-10-order-telephone.png)
+![Рисунок 10 – Студенты отсортированные по номеру телефона](assets/step-10-order-telephone.png){ width=90% }
 
 ### Задание 11. Отсортировать студентов по номеру группы по возрастанию, для одинаковых групп — фамилии в обратном алфавитном порядке
 
@@ -144,7 +144,7 @@ SELECT fam, ima, telephone FROM dannie ORDER BY telephone;
 SELECT fam, kod_gruppy FROM dannie ORDER BY kod_gruppy ASC, fam DESC;
 ```
 
-![Рисунок 11 – Студенты отсортированные по группе и фамилии](assets/step-11-order-gruppa-fam.png)
+![Рисунок 11 – Студенты отсортированные по группе и фамилии](assets/step-11-order-gruppa-fam.png){ width=100% }
 
 ### Задание 12. Выбрать студентов, фамилии которых заканчиваются на «а»
 
@@ -152,7 +152,7 @@ SELECT fam, kod_gruppy FROM dannie ORDER BY kod_gruppy ASC, fam DESC;
 SELECT fam FROM dannie WHERE fam LIKE '%а';
 ```
 
-![Рисунок 12 – Студенты с фамилиями на букву а](assets/step-12-like-fam-ends-a.png)
+![Рисунок 12 – Студенты с фамилиями на букву а](assets/step-12-like-fam-ends-a.png){ width=70% }
 
 ### Задание 13. Отсортировать по возрастанию фамилии студентов, чьи отчества заканчиваются на «ич»
 
@@ -160,7 +160,7 @@ SELECT fam FROM dannie WHERE fam LIKE '%а';
 SELECT fam, otch FROM dannie WHERE otch LIKE '%ич' ORDER BY fam ASC;
 ```
 
-![Рисунок 13 – Студенты с отчеством на ич](assets/step-13-like-otch-ich.png)
+![Рисунок 13 – Студенты с отчеством на ич](assets/step-13-like-otch-ich.png){ width=70% }
 
 ### Задание 14. Отсортировать по возрастанию фамилии студентов группы 3
 
@@ -168,7 +168,7 @@ SELECT fam, otch FROM dannie WHERE otch LIKE '%ич' ORDER BY fam ASC;
 SELECT fam FROM dannie WHERE kod_gruppy = 3 ORDER BY fam ASC;
 ```
 
-![Рисунок 14 – Фамилии студентов группы 3 по возрастанию](assets/step-14-where-order-gruppa3.png)
+![Рисунок 14 – Фамилии студентов группы 3 по возрастанию](assets/step-14-where-order-gruppa3.png){ width=80% }
 
 ### Задание 15. Вывести студентов, родившихся в 1990 году
 
@@ -178,7 +178,7 @@ SELECT fam FROM dannie WHERE kod_gruppy = 3 ORDER BY fam ASC;
 SELECT fam, ima, date_rognen FROM dannie WHERE YEAR(date_rognen) = 1990;
 ```
 
-![Рисунок 15 – Студенты 1990 года рождения](assets/step-15-year-1990.png)
+![Рисунок 15 – Студенты 1990 года рождения](assets/step-15-year-1990.png){ width=70% }
 
 ### Задание 16. Отсортировать фамилии студентов, у которых начальные буквы имени в диапазоне от «И» до «Я»
 
@@ -186,7 +186,7 @@ SELECT fam, ima, date_rognen FROM dannie WHERE YEAR(date_rognen) = 1990;
 SELECT fam, ima FROM dannie WHERE ima BETWEEN 'И' AND 'Я' ORDER BY fam ASC;
 ```
 
-![Рисунок 16 – Студенты с именем от И до Я](assets/step-16-between-ima-order.png)
+![Рисунок 16 – Студенты с именем от И до Я](assets/step-16-between-ima-order.png){ width=90% }
 
 ### Задание 17. Вывести данные о студентах с фамилиями «Петров» и «Смелов»
 
@@ -194,7 +194,7 @@ SELECT fam, ima FROM dannie WHERE ima BETWEEN 'И' AND 'Я' ORDER BY fam ASC;
 SELECT * FROM dannie WHERE fam IN ('Петров', 'Смелов');
 ```
 
-![Рисунок 17 – Студенты Петров и Смелов](assets/step-17-in-fam.png)
+![Рисунок 17 – Студенты Петров и Смелов](assets/step-17-in-fam.png){ width=90% }
 
 ### Задание 18. Вывести в обратном алфавитном порядке имена и фамилии студентов, родившихся не в 1991 году
 
@@ -202,7 +202,11 @@ SELECT * FROM dannie WHERE fam IN ('Петров', 'Смелов');
 SELECT fam, ima FROM dannie WHERE YEAR(date_rognen) <> 1991 ORDER BY fam DESC;
 ```
 
-![Рисунок 18 – Студенты не 1991 года рождения](assets/step-18-not-year-order-desc.png)
+![Рисунок 18 – Студенты не 1991 года рождения](assets/step-18-not-year-order-desc.png){ width=100% }
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
 
 ### Задание 19. Вывести информацию о всех студентах, кроме Варечкина и Климовой
 
@@ -210,7 +214,7 @@ SELECT fam, ima FROM dannie WHERE YEAR(date_rognen) <> 1991 ORDER BY fam DESC;
 SELECT * FROM dannie WHERE fam NOT IN ('Варечкин', 'Климова');
 ```
 
-![Рисунок 19 – Студенты кроме Варечкина и Климовой](assets/step-19-not-in-fam.png)
+![Рисунок 19 – Студенты кроме Варечкина и Климовой](assets/step-19-not-in-fam.png){ width=100% }
 
 ### Задание 20. Выбрать студентов с номерами телефонов МТС, начинающимися с 3
 
@@ -222,7 +226,7 @@ WHERE (telephone LIKE '8918%' OR telephone LIKE '8919%')
   AND telephone LIKE '8918%3%';
 ```
 
-![Рисунок 20 – Студенты с телефонами МТС на 3](assets/step-20-like-mts.png)
+![Рисунок 20 – Студенты с телефонами МТС на 3](assets/step-20-like-mts.png){ width=100% }
 
 ### Задание 21. Сгруппировать список улиц по коду города
 
@@ -232,7 +236,7 @@ WHERE (telephone LIKE '8918%' OR telephone LIKE '8919%')
 SELECT kod_gorod, nazvanie FROM ulica GROUP BY kod_gorod, nazvanie;
 ```
 
-![Рисунок 21 – Улицы сгруппированные по коду города](assets/step-21-group-ulica.png)
+![Рисунок 21 – Улицы сгруппированные по коду города](assets/step-21-group-ulica.png){ width=100% }
 
 ### Задание 22. Сгруппировать данные о студентах по дате рождения
 
@@ -240,7 +244,7 @@ SELECT kod_gorod, nazvanie FROM ulica GROUP BY kod_gorod, nazvanie;
 SELECT date_rognen, fam, ima FROM dannie GROUP BY date_rognen, fam, ima;
 ```
 
-![Рисунок 22 – Студенты сгруппированные по дате рождения](assets/step-22-group-date.png)
+![Рисунок 22 – Студенты сгруппированные по дате рождения](assets/step-22-group-date.png){ width=100% }
 
 ### Задание 23. Вывести по группам коды городов для улиц Ставропольская и Комсомольская
 
@@ -252,7 +256,7 @@ GROUP BY kod_gorod, nazvanie
 HAVING nazvanie IN ('Ставропольская', 'Комсомольская');
 ```
 
-![Рисунок 23 – Коды городов для улиц Ставропольская и Комсомольская](assets/step-23-having-ulica.png)
+![Рисунок 23 – Коды городов для улиц Ставропольская и Комсомольская](assets/step-23-having-ulica.png){ width=80% }
 
 ### Задание 24. Сгруппировать по улицам данные о студентах группы с кодом 1
 
@@ -262,7 +266,7 @@ WHERE kod_gruppy = 1
 GROUP BY kod_ulica, fam, ima;
 ```
 
-![Рисунок 24 – Студенты группы 1 сгруппированные по улицам](assets/step-24-where-group-ulica.png)
+![Рисунок 24 – Студенты группы 1 сгруппированные по улицам](assets/step-24-where-group-ulica.png){ width=80% }
 
 ### Задание 25. Отсортировать фамилии студентов, у которых в отчестве встречается «ев»
 
@@ -272,7 +276,7 @@ GROUP BY kod_ulica, fam, ima;
 SELECT fam, otch FROM dannie WHERE otch LIKE '%ев%' ORDER BY fam ASC;
 ```
 
-![Рисунок 25 – Студенты с отчеством содержащим ев](assets/step-25-like-otch-ev.png)
+![Рисунок 25 – Студенты с отчеством содержащим ев](assets/step-25-like-otch-ev.png){ width=100% }
 
 ## 4. Проверка результатов
 
@@ -280,15 +284,15 @@ SELECT fam, otch FROM dannie WHERE otch LIKE '%ев%' ORDER BY fam ASC;
 
 Prisma Studio отображает все таблицы с данными и позволяет визуально проверить связи между ними.
 
-![Рисунок – Таблица dannie в Prisma Studio](assets/prisma-tables.png)
+![Рисунок 26 – Таблица dannie в Prisma Studio](assets/prisma-tables.png){ width=80% }
 
 phpMyAdmin предоставляет возможность выполнять SQL-запросы напрямую через вкладку SQL и просматривать результаты в табличном виде.
 
-![Рисунок – Список таблиц базы данных в phpMyAdmin](assets/phpmyadmin-tables.png)
+![Рисунок 27 – Список таблиц базы данных в phpMyAdmin](assets/phpmyadmin-tables.png){ width=80% }
 
 Диаграмма связей в Prisma Studio наглядно показывает отношения между всеми таблицами базы данных.
 
-![Рисунок – Диаграмма связей базы данных в Prisma Studio](assets/prisma-diagram.png)
+![Рисунок 28 – Диаграмма связей базы данных в Prisma Studio](assets/prisma-diagram.png){ width=80% }
 
 ## Вывод
 

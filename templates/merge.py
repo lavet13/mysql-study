@@ -163,6 +163,18 @@ doc.element.body.append(pb)
 # Composer handles numbering.xml, relationships, and image parts correctly.
 # It remaps IDs from the content document to avoid conflicts with the base.
 
+# Remove trailing empty paragraphs that cause a blank final page
+body = doc.element.body
+for child in reversed(list(body)):
+    if child.tag == qn('w:p'):
+        text = ''.join(child.itertext()).strip()
+        if not text:
+            body.remove(child)
+        else:
+            break
+    else:
+        break
+
 composer = Composer(doc)
 composer.append(Document(args.content))
 

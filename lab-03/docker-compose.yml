@@ -16,7 +16,7 @@ services:
       - "3309:3306"
     volumes:
       - lab03-data:/var/lib/mysql
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ../student-init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - shared
 

@@ -1,7 +1,7 @@
 services:
   db:
     image: mysql:8.0
-    container_name: mysql-lab01
+    container_name: mysql-lab04
     restart: always
     command:
       [
@@ -13,17 +13,17 @@ services:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: lab
     ports:
-      - "3307:3306" # different port per lab — avoids conflicts if multiple labs run
+      - "3310:3306"
     volumes:
-      - lab01-data:/var/lib/mysql
+      - lab04-data:/var/lib/mysql
       - ../student-init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - shared
 
 volumes:
-  lab01-data: # isolated volume — won't interfere with other labs
+  lab04-data:
 
 networks:
   shared:
-    external: true # tells Docker: don't create this, it already exists, at the root
-    name: mysql-shared # must match exactly what root compose defined
+    external: true
+    name: mysql-shared

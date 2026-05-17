@@ -29,11 +29,12 @@ From the codebase file, learn:
 - The docker-compose.yml pattern used per lab
 - The report.md structure and section style from existing labs
 
-Then generate FOUR complete files without asking me to fill in anything.
+Then generate THREE complete files without asking me to fill in anything.
+init.sql is shared across labs 2-11 and does not need to be generated.
 
 ## Output format
 
-Return exactly four fenced code blocks and nothing else outside them,
+Return exactly three fenced code blocks and nothing else outside them,
 except a one-line header before each block identifying the file.
 
 Use four backticks as the outer fence so inner triple-backtick code blocks
@@ -42,11 +43,6 @@ do not accidentally close it:
 File: lab-0N/report.md
 ````markdown
 (full report content here)
-````
-
-File: lab-0N/init.sql
-````sql
-(full SQL content here)
 ````
 
 File: lab-0N/docker-compose.yml
@@ -63,11 +59,13 @@ Rules for docker-compose.yml:
 - Copy the structure from lab-01/docker-compose.yml visible in the codebase
 - Increment the host port by 1 per lab (lab-01=3307, lab-02=3308, lab-03=3309...)
 - Update container_name, volume name, and volume declaration to match the lab number
+- The init.sql volume mount must point to: ../student-init.sql:/docker-entrypoint-initdb.d/init.sql
 
 Rules for build.sh:
 - Copy the structure from lab-01/build.sh visible in the codebase
 - Update LAB_NUMBER, LAB_TITLE, SUBJECT, and any other variables at the top
 - All paths and docker commands stay identical — only the variables change
+- Always include --resource-path="lab-0N" in the Pandoc command
 
 Do not render or format the output — I need the raw syntax I can copy directly
 into files.
@@ -81,6 +79,7 @@ into files.
 - Do NOT add a YAML front matter block at the top
 - Do NOT use HTML tags or LaTeX
 - Each section must have a short explanatory paragraph before any code or table
+- Do NOT include a screenshot checklist section at the end
 
 ### Structure
 
@@ -142,60 +141,37 @@ The separator row `|---|---|---|` is required.
 
 ### Images
 
-Use this exact pattern with sequential numbering:
+Use this exact pattern with sequential numbering starting from 1:
 
 ```markdown
-![Рисунок – Краткое описание](assets/step-N-description.png)
+![Рисунок 1 – Краткое описание](assets/step-01-description.png){ width=80% }
 ```
 
-where N is a sequential number and description is 2-3 words joined by hyphens.
+Rules:
+- Number figures sequentially throughout the entire document (Рисунок 1, Рисунок 2, ...)
+- Always include `{ width=80% }` after every image to prevent full-page images
+- Use two-digit zero-padded numbers in filenames: step-01, step-02, step-10, step-11
+- Description is 2-3 words joined by hyphens
+
+### Page breaks
+
+To insert a hard page break between major sections use:
+
+```markdown
+::: {custom-style="pagebreak"}
+:::
+```
+
+Use this before each new # Heading 1 section to start it on a fresh page.
 
 ### Required images
 
-Always include these three in section 6 (Проверка):
+Always include these three in section 6 (Проверка), numbered sequentially
+after all other figures in the document:
 
 - `assets/prisma-tables.png` — Prisma Studio showing a table with populated data
-- `assets/prisma-diagram.png` — Prisma Studio data model visualizer showing table relationships
+- `assets/prisma-diagram.png` — Prisma Studio data model visualizer showing relationships
 - `assets/phpmyadmin-tables.png` — phpMyAdmin showing table list and contents
 
 Add additional screenshots wherever they help illustrate the work:
 terminal output of key commands, intermediate states, before/after comparisons.
-
-### Screenshot checklist
-
-After ## Вывод, always add this final section:
-
-```markdown
-## Чеклист скриншотов
-
-- [ ] `assets/prisma-tables.png` — Prisma Studio: таблица [TableName] с данными
-- [ ] `assets/prisma-diagram.png` — Prisma Studio: визуализатор связей между таблицами
-- [ ] `assets/phpmyadmin-tables.png` — phpMyAdmin: список таблиц и содержимое
-- [ ] `assets/step-N-description.png` — [one line: where to take it and what to show]
-```
-
-List every image referenced in the report, in order.
-
----
-
-## Rules for init.sql
-
-Follow the exact conventions from the existing lab-01/init.sql visible
-in the attached codebase:
-
-- First line: `SET NAMES utf8mb4;`
-- Second line: `USE lab;`
-- All CREATE TABLE statements use `IF NOT EXISTS`
-- All tables use `ENGINE=InnoDB DEFAULT CHARSET=utf8mb4`
-- Foreign keys use `ON DELETE CASCADE` for dependent tables,
-  `ON DELETE SET NULL` for optional references
-- After all CREATE TABLE statements, add a blank line then INSERT statements
-- INSERT statements must include all the original data rows from the assignment
-- Add a comment above each CREATE TABLE explaining which normal form it satisfies
-  and why (same style as lab-01/init.sql comments)
-- For labs 2–11, the init.sql must create the full 'student' database
-  schema (dannie, region, gorod, ulica, gruppa, spec, roditeli, roddeti,
-  prepod, dischiplina, uspev) with enough realistic seed data to
-  demonstrate all the query tasks in the assignment. Use the schema
-  diagram from page 16 of the assignment PDF as the source of truth
-  for table structure and relationships.
